@@ -443,3 +443,189 @@
     padding-top: 20px;
   }
 }
+
+/* Added sections: service intro and anonymous talent marquee. */
+.bnd-wrap .about-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+}.bnd-wrap .about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  align-items: center;
+}.bnd-wrap .about-text {
+  text-align: center;
+}.bnd-wrap .about-text .kicker {
+  justify-content: center;
+  margin-bottom: 14px;
+}.bnd-wrap .about-text h2 {
+  font-family: 'Paperlogy', 'Noto Sans KR', sans-serif;
+  font-size: 42px;
+  line-height: 1.18;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  color: #303035;
+  margin-bottom: 22px;
+}.bnd-wrap .about-lead {
+  color: #0f2554;
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 700;
+  margin-bottom: 18px;
+  white-space: nowrap;
+}.bnd-wrap .about-body {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 500;
+}.bnd-wrap .about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}.bnd-wrap .about-card {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  align-items: center;
+  min-height: 118px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 16px 36px rgba(23, 32, 51, .06);
+}.bnd-wrap .about-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #eff6ff;
+  color: var(--teal);
+  font-size: 28px;
+}.bnd-wrap .about-card h3 {
+  color: #0f2554;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 800;
+  margin-bottom: 6px;
+}.bnd-wrap .about-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.bnd-wrap .talents-section {
+  padding: 100px 0;
+  background: var(--white);
+  overflow: hidden;
+}.bnd-wrap .talents-section .section-header {
+  margin-bottom: 32px;
+}.bnd-wrap .talents-marquee {
+  overflow: hidden;
+  padding: 10px 0 18px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}.bnd-wrap .talents-track {
+  display: flex;
+  width: max-content;
+  animation: bndTalentsScroll 72s linear infinite;
+  will-change: transform;
+}.bnd-wrap .talents-marquee:hover .talents-track {
+  animation-play-state: paused;
+}.bnd-wrap .talents-set {
+  display: flex;
+  gap: 18px;
+  padding-right: 18px;
+}.bnd-wrap .talent-card {
+  flex: 0 0 302px;
+  min-height: 172px;
+  padding: 22px 22px 20px;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 14px 32px rgba(23, 32, 51, .06);
+}.bnd-wrap .talent-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: var(--teal);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}.bnd-wrap .talent-card h3 {
+  color: #142035;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 800;
+  margin-bottom: 10px;
+}.bnd-wrap .talent-card p,
+.bnd-wrap .talent-card strong {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 500;
+}.bnd-wrap .talent-card strong {
+  color: #4f5868;
+  margin-top: 4px;
+}
+@keyframes bndTalentsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 1100px) {
+  .bnd-wrap .about-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }.bnd-wrap .about-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+@media (max-width: 760px) {
+  .bnd-wrap .about-section,
+  .bnd-wrap .talents-section {
+    padding: 82px 0;
+  }.bnd-wrap .about-text h2 {
+    font-size: 34px;
+    line-height: 1.22;
+  }.bnd-wrap .about-lead {
+    font-size: 18px;
+    white-space: normal;
+  }.bnd-wrap .about-lead br,
+  .bnd-wrap .about-body br {
+    display: none;
+  }.bnd-wrap .about-cards {
+    grid-template-columns: 1fr;
+  }.bnd-wrap .about-card {
+    grid-template-columns: 52px 1fr;
+    min-height: 0;
+    padding: 20px;
+  }.bnd-wrap .about-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }.bnd-wrap .about-card h3 {
+    font-size: 20px;
+  }.bnd-wrap .talents-section .section-header {
+    margin-bottom: 24px;
+  }.bnd-wrap .talents-marquee {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  }.bnd-wrap .talent-card {
+    flex-basis: 74vw;
+    max-width: 320px;
+    min-height: 166px;
+    padding: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bnd-wrap .talents-track {
+    animation: none;
+  }
+}

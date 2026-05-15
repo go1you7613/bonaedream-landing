@@ -1,7 +1,11 @@
-# 보내드림 랜딩페이지
+# 보내드림 랜딩 페이지
 
-경기도일자리재단 보내드림 랜딩페이지 정적 배포본입니다.
+Figma node `118:7` 기준으로 퍼블리싱한 정적 랜딩 페이지입니다.
 
-## 배포
+- `index.html`
+- `css/style.css`
+- `js/main.js`
+- `image/`
+- `font/`
 
-GitHub Pages에서 루트 디렉터리의 `index.html`을 기준으로 배포합니다.
+기존 소스는 `backup/20260515_before_figma_118_7/`에 보관했습니다.

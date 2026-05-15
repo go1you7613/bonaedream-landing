@@ -135,4 +135,72 @@
       item.classList.toggle("is-open");
     });
   });
+
+  const reviewModal = document.getElementById("reviewModal");
+  const reviewCards = root.querySelectorAll(".review-card");
+  if (reviewModal && reviewCards.length > 0) {
+    const modalPanel = reviewModal.querySelector(".review-modal-panel");
+    const modalTitle = reviewModal.querySelector("#reviewModalTitle");
+    const modalAuthor = reviewModal.querySelector("#reviewModalAuthor");
+    const modalStars = reviewModal.querySelector("#reviewModalStars");
+    const modalText = reviewModal.querySelector("#reviewModalText");
+    const modalCategory = reviewModal.querySelector("#reviewModalCategory");
+    const beforeImage = reviewModal.querySelector("#reviewBeforeImage");
+    const afterImage = reviewModal.querySelector("#reviewAfterImage");
+    let lastFocused = null;
+
+    function openReviewModal(card) {
+      const title = card.querySelector("h3")?.textContent.trim() || "";
+      const author = card.querySelector(".review-meta p:first-child")?.textContent.trim() || "";
+      const stars = card.querySelector(".stars")?.textContent.trim() || "";
+      const text = card.querySelector(":scope > p")?.textContent.trim() || "";
+      const category = card.querySelector(":scope > span")?.textContent.trim() || "";
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalAuthor) modalAuthor.textContent = author;
+      if (modalStars) modalStars.textContent = stars;
+      if (modalText) modalText.textContent = text;
+      if (modalCategory) modalCategory.textContent = category;
+      if (beforeImage) beforeImage.src = card.dataset.beforeImage || "image/reviews/before.jpg";
+      if (afterImage) afterImage.src = card.dataset.afterImage || "image/reviews/after.jpg";
+
+      lastFocused = document.activeElement;
+      reviewModal.classList.add("is-open");
+      reviewModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      modalPanel?.focus();
+    }
+
+    function closeReviewModal() {
+      reviewModal.classList.remove("is-open");
+      reviewModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      if (lastFocused instanceof HTMLElement) lastFocused.focus();
+    }
+
+    reviewCards.forEach((card) => {
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `${card.querySelector("h3")?.textContent.trim() || "후기"} 상세 보기`);
+      card.dataset.beforeImage = card.dataset.beforeImage || "image/reviews/before.jpg";
+      card.dataset.afterImage = card.dataset.afterImage || "image/reviews/after.jpg";
+      card.addEventListener("click", () => openReviewModal(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openReviewModal(card);
+        }
+      });
+    });
+
+    reviewModal.querySelectorAll("[data-review-close]").forEach((button) => {
+      button.addEventListener("click", closeReviewModal);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && reviewModal.classList.contains("is-open")) {
+        closeReviewModal();
+      }
+    });
+  }
 })();

@@ -631,7 +631,8 @@
 .bnd-wrap .service-feature-card {
   position: absolute;
   left: 50px;
-  top: 92px;
+  top: auto;
+  bottom: 48px;
   width: 424px;
   padding: 36px 32px;
   border-radius: 28px;
@@ -1335,7 +1336,8 @@ body.modal-open {
   .bnd-wrap .service-feature-card {
     left: 24px;
     right: 24px;
-    top: 260px;
+    top: auto;
+    bottom: 24px;
     width: auto;
     padding: 28px 24px;
   }
@@ -1436,17 +1438,18 @@ body.modal-open {
   }
 
   .bnd-wrap .service-feature {
-    min-height: 560px;
+    min-height: 500px;
   }
 
   .bnd-wrap .service-feature-img {
-    height: 560px;
+    height: 500px;
   }
 
   .bnd-wrap .service-feature-card {
     left: 16px;
     right: 16px;
-    top: 212px;
+    top: auto;
+    bottom: 20px;
     padding: 24px 20px;
   }
 

@@ -23,6 +23,7 @@
       alumniTrack.appendChild(clone);
     });
     alumniTrack.dataset.cloned = "true";
+    alumniTrack.classList.add("is-visible");
   }
 
   const groupTabs = root.querySelectorAll(".group-tab");

@@ -934,10 +934,12 @@ body.modal-open {
 .review-modal-panel {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
   width: min(720px, calc(100% - 64px));
   max-height: calc(100vh - 64px);
-  overflow: auto;
-  padding: 72px 36px 36px;
+  overflow: hidden;
+  padding: 0;
   border-radius: 28px;
   background: #fff;
   box-shadow: 0 34px 80px rgba(10, 35, 48, .28);
@@ -947,10 +949,16 @@ body.modal-open {
   outline: none;
 }
 
+.review-modal-header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px 18px 12px;
+  background: #fff;
+}
+
 .review-modal-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
   width: 42px;
@@ -962,6 +970,12 @@ body.modal-open {
   font-size: 28px;
   line-height: 1;
   cursor: pointer;
+}
+
+.review-modal-body {
+  overflow-y: auto;
+  padding: 0 36px 36px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .review-modal-images {
@@ -1047,6 +1061,20 @@ body.modal-open {
   font-size: 20px;
   line-height: 1.8;
   word-break: keep-all;
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .review-modal-images {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .review-modal-images figure {
+    flex: 1 1 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: 7 / 5;
+  }
 }
 
 .bnd-wrap .more-wrap {
@@ -1244,6 +1272,7 @@ body.modal-open {
     justify-content: space-between;
     gap: 8px;
     padding-top: 20px;
+    margin-bottom: 18px;
     min-height: auto;
   }
 
@@ -1296,11 +1325,11 @@ body.modal-open {
   }
 
   .bnd-wrap .service-feature {
-    min-height: 520px;
+    min-height: 610px;
   }
 
   .bnd-wrap .service-feature-img {
-    height: 520px;
+    height: 610px;
   }
 
   .bnd-wrap .service-feature-card {
@@ -1325,13 +1354,25 @@ body.modal-open {
   }
 
   .review-modal {
-    padding: 18px;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: max(28px, env(safe-area-inset-top)) 18px 24px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .review-modal-panel {
-    max-height: calc(100vh - 36px);
-    padding: 64px 20px 28px;
+    width: min(720px, 100%);
+    max-height: calc(100vh - 52px);
+    max-height: calc(100dvh - 52px);
     border-radius: 22px;
+  }
+
+  .review-modal-header {
+    padding: 14px 16px 10px;
+  }
+
+  .review-modal-body {
+    padding: 0 20px 28px;
   }
 
   .review-modal-images {
@@ -1392,5 +1433,82 @@ body.modal-open {
 
   .bnd-wrap .audience-card p {
     font-size: 17px;
+  }
+
+  .bnd-wrap .service-feature {
+    min-height: 560px;
+  }
+
+  .bnd-wrap .service-feature-img {
+    height: 560px;
+  }
+
+  .bnd-wrap .service-feature-card {
+    left: 16px;
+    right: 16px;
+    top: 212px;
+    padding: 24px 20px;
+  }
+
+  .bnd-wrap .service-feature-card p {
+    margin-bottom: 16px;
+  }
+
+  .bnd-wrap .service-feature-card .service-count,
+  .bnd-wrap .service-feature-tags {
+    margin-bottom: 16px;
+  }
+
+  .bnd-wrap .service-feature-card a {
+    padding: 13px 0;
+  }
+
+  .review-modal {
+    padding: max(24px, env(safe-area-inset-top)) 12px 20px;
+  }
+
+  .review-modal-panel {
+    width: 100%;
+    max-height: calc(100vh - 44px);
+    max-height: calc(100dvh - 44px);
+  }
+
+  .review-modal-header {
+    padding: 14px 14px 10px;
+  }
+
+  .review-modal-body {
+    padding: 0 18px 24px;
+  }
+
+  .review-modal-category {
+    margin-bottom: 12px;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  .review-modal-content h3 {
+    margin-bottom: 14px;
+    font-size: 23px;
+    line-height: 1.34;
+  }
+
+  .review-modal-meta {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .review-modal-meta strong {
+    font-size: 17px;
+  }
+
+  .review-modal-meta span {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .review-modal-content p {
+    font-size: 16px;
+    line-height: 1.65;
   }
 }
